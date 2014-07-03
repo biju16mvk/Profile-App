@@ -1,0 +1,207 @@
+<div class="container" id="signup-container">
+	<div class="row-fluid"><p>&nbsp;</p></div>
+			<div class="well">
+<div class="alert alert-error" id="msg_div" style="display:none">
+			<a class="close" data-dismiss="alert" href="#"><i class="icon-remove"></i></a>
+	</div>
+	
+		<form id="frmRegistration" name="frmRegistration" ng-controller="UserRegistrationCtrl" ng-submit="registerUser()" novalidate="">
+				<div class="row-fluid">
+					<div class="span12"><h1>Update Profile</h1><p>&nbsp;</p></div>
+				</div>
+				<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid control-group">
+								<label class="control-label" for="newuserid">User Name</label>
+								<div class="controls"><input type="text" id="newuserid" name="newuserid" ng-model="newuserid" class="input-medium" placeholder="Enter Username.." required="" unique-email=""></div>
+							<div class="custom-error" style="color:#F00"><span ng-show="frmRegistration.newuserid.$error.required">Username is required.</span></div>
+								<div class="custom-error" style="color:#F00" ng-show="frmRegistration.$error"> <span class="msg-error" ng-show="frmRegistration.newuserid.$error.uniqueEmail">Username not available</span></div>
+							</div>
+						</div>
+				</div>
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid control-group">
+								<label class="control-label">First Name</label>
+								<div class="controls"><input type="text" id="firstname" name="firstname" ng-model="firstname" class="input-medium" placeholder="Enter First Name.." required=""></div>
+								<div class="custom-error" style="color:#F00"><span ng-show="frmRegistration.firstname.$error.required">FirstName is required.</span></div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid control-group">
+								<label class="control-label">Middle Name</label>
+								<div class="controls"><input type="text" id="middlename" name="middlename" ng-model="middlename" class="input-medium" placeholder="Enter Middle Name.."></div>
+							</div>
+						</div>
+						<div class="span4 offset2">
+							<div class="row-fluid control-group">
+								<label class="control-label">Last Name</label>
+								<div class="controls"><input type="text" id="lastname" name="lastname" ng-model="lastname" class="input-medium" placeholder="Enter Last Name.." required=""></div>
+								<div class="custom-error" style="color:#F00"><span ng-show="frmRegistration.lastname.$error.required">LastName is required.</span></div>
+							</div>
+						</div>
+					</div>	
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid control-group">
+								<label class="control-label" for="live_id">Living Arrangement</label>
+								<div class="controls">
+								<select id="live_id" name="live_id" ng-model="live_id" ng-options="option.id as option.name for option in livingarrangement" ng-change="selectAction()" class="input-medium" style="width:160px"></select>
+								</div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid control-group">
+								<label class="control-label" for="religion_id">Religion</label>
+								<div class="controls">
+							<select id="religion_id" name="religion_id" ng-model="religion_id" ng-options="option.id as option.name for option in religion" class="input-medium" style="width:160px"></select>
+								</div>
+							</div>
+						</div>
+						<div class="span4 offset2 control-group">
+							<div class="row-fluid">
+								<label class="control-label" for="education_id">Education</label>
+								<div class="controls">
+
+							<select id="education_id" name="education_id[]" ng-model="education_id" ng-options="option.id as option.name for option in education" multiple="multiple" class="input-medium" style="width:160px"></select>
+								
+								</div>
+							</div>
+						</div>
+					</div>	
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid control-group">
+								<label class="control-label" for="pass">Password</label>
+								<div class="controls"><input type="password" id="pass" name="pass" ng-model="pass" class="input-medium" placeholder="Enter Password.." required=""></div>
+								<div class="custom-error" style="color:#F00"><span ng-show="frmRegistration.pass.$error.required">Password is required.</span></div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid control-group">
+								<label class="control-label" for="re_pass">Confirm Password</label>
+								<div class="controls"><input type="password" id="re_pass" name="re_pass" ng-model="re_pass" class="input-medium" placeholder="Confirm Password.." pw-check="pass" required=""></div>
+								<div class="custom-error" style="color:#F00"><span ng-show="frmRegistration.re_pass.$error.required">Password is required.</span></div>
+								<div class="custom-error" style="color:#F00" ng-show="frmRegistration.$error"> <span class="msg-error" ng-show="frmRegistration.re_pass.$error.pwmatch">Passwords not matching.</span></div>
+           						</div>
+							</div>
+					</div>	
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid control-group">
+								<label class="control-label" for="language_id">Languages</label>
+								<div class="controls">
+								<select id="language_id" name="language_id[]" ng-model="language_id" ng-options="option.id as option.name for option in languages" multiple="multiple" class="input-medium" style="width:160px"></select>
+								</div>
+							</div>
+						</div>
+						<div class="span8">
+							<div class="row-fluid control-group">
+								<label class="control-label" for="gender">Gender</label>
+								<div class="controls">
+									<div class="btn-group" data-toggle="buttons-radio" data-toggle-name="gender">
+ 											 <button type="button" value="1" class="btn btn-info" ng-class="getGenderClass(2)" data-toggle="button" ng-click="genderFemaleValue(2)">Female</button>
+  											 <button type="button" value="2" class="btn btn-info" ng-class="getGenderClass(1)" data-toggle="button" ng-click="genderMaleValue(1)">Male</button>
+ 											 <button type="button" value="3" class="btn btn-info" ng-class="getGenderClass(3)" data-toggle="button" ng-click="genderOtherValue(3)">Other</button>
+											 <button type="button" value="4" class="btn btn-info" ng-class="getGenderClass(4)" data-toggle="button" ng-click="genderUnknownValue(4)">Unknown</button>
+									</div>
+									<input type="hidden" name="gender" value="1">
+								</div>
+							</div>
+						</div>
+					</div>	
+					<div class="row-fluid">
+						<h3>Address</h3>
+					</div>				
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid control-group">
+								<label class="control-label" for="street">Address</label>
+								<div class="controls"><input type="text" id="street" name="street" ng-model="street" class="input-medium" placeholder="Address1.."></div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid control-group">
+								<label class="control-label">Street</label>
+								<div class="controls"><input type="text" id="address" name="address" ng-model="address" class="input-medium" placeholder="Address2.."></div>
+							</div>
+						</div>
+											
+						<div class="span4">
+							<div class="row-fluid control-group">
+								<label class="control-label">Zip</label>
+								<div class="controls"><input type="text" id="zip" name="zip" ng-model="zip" class="input-medium" placeholder="Zip.."></div>
+							</div>
+						</div>			
+
+					</div>		
+					<div class="row-fluid">
+						
+						<div class="span4">
+							<div class="row-fluid control-group">
+								<label class="control-label">City</label>
+								<div class="controls"><input type="text" id="city" name="city" ng-model="city" class="input-medium" placeholder="City.."></div>
+							</div>
+						</div>		
+
+						<div class="span4 offset1">
+							<div class="row-fluid control-group">
+								<label class="control-label">State</label>
+								<div class="controls"><input type="text" id="state" name="state" ng-model="state" class="input-medium" placeholder="State.."></div>
+							</div>
+						</div>	
+						<div class="span4 offset1">
+							<div class="row-fluid control-group">
+								<label class="control-label" for="countryid">Country</label>
+								<div class="controls">
+							<select id="countryid" name="countryid" ng-model="countryid" ng-options="option.id as option.name for option in country" class="input-medium" style="width:160px"></select>
+								</div>
+							</div>
+						</div>						
+						
+					</div>	
+
+					<div class="row-fluid">
+						<div class="span4 offset1">
+							<div class="row-fluid control-group">
+								<label class="control-label">Email</label>
+								<div class="controls"><input type="email" id="email" name="email" ng-model="email" class="input-medium" placeholder="Email.." required=""></div>
+							<div class="custom-error" style="color:#F00">
+<span ng-show="frmRegistration.email.$error.required">Email is required.</span><span ng-show="frmRegistration.email.$error.email">Please enter a valid email address</span></div>
+							</div>
+						</div>
+
+						<div class="span4">
+							<div class="row-fluid control-group">
+								<label class="control-label">Phone</label>
+								<div class="controls"><input type="text" id="phone" name="phone" ng-model="phone" class="input-medium" placeholder="Phone.."></div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid control-group">
+								<label class="control-label">Fax</label>
+								<div class="controls"><input type="text" id="fax" name="fax" ng-model="fax" class="input-medium" placeholder="Fax.."></div>
+							</div>
+						</div>
+					</div>	
+					<div class="row-fluid">
+                                          	<div class="span4 offset1">
+							<div class="row-fluid control-group">
+								<label class="control-label">Physician</label>
+                               <div class="controls"><select id="physician" name="physician" ng-model="selectedPhysician" ng-options="option.party_id as option.party_name for option in physician" class="input-medium" style="width:160px"></select></div>
+							</div>
+						</div>
+					</div>
+					<div class="row-fluid">
+						<div class="form-actions">
+							<div class="pull-right">
+				
+								<button class="btn btn-primary" type="submit" name="submit" value="Sign Up" id="btn-primary-signup" ng-disabled="frmRegistration.$invalid">Update</button>
+								<button value="Cancel" id="cancel" class="btn btn-primary" name="CANCEL" type="button" ng-click="clearForm()">Cancel</button>
+							</div>
+						</div>
+					</div>	
+				</form></div>
+				
+
+</div>

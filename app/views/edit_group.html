@@ -1,0 +1,45 @@
+<show-menu></show-menu>
+<form ng-submit="editGroup()" id="editGroup" form-autofill-fix>
+    <div class="widget-header">
+        <h4><strong>Edit Group</strong></h4>
+    </div>
+    <div class="row">
+        <div class="col-md-5">       
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">All Users</label><span><a href='' ng-click="selectAllLeft('LEFT_MENU2')" style="float:right;">Select All</a></span>
+                <div class="controls">
+                    <select multiple="multiple" ng-model="credentials.users" class="form-control" id="LEFT_MENU2" style="height:250px">
+                        <option ng-repeat="alluser in allusers" value="{{alluser.value}}~{{alluser.display}}" ng-bind="alluser.userName"></option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-2 btn-center">
+            <a class="btn btn-primary btn-center-style" ng-click="toggleOption('LEFT_MENU2','RIGHT_MENU2')" href=""><span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a class="btn btn-primary btn-center-style" ng-click="toggleOption('RIGHT_MENU2','LEFT_MENU2')" href=""><span class="glyphicon glyphicon-chevron-left"></span></a>
+        </div>
+        <div class="col-md-5">       
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Users in the group</label><span><a href='' ng-click="selectAllRight('RIGHT_MENU2')" style="float:right;">Select All</a></span>
+                <div class="controls">
+                    <select multiple="multiple" ng-model="selectedusers" class="form-control" id="RIGHT_MENU2" style="height:250px">
+                        <option ng-repeat="groupuser in groupusers" value="{{groupuser.value}}~{{groupuser.userName}}" ng-bind="groupuser.display"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="control-group">
+                <label class="control-label label_style1" for="inputEmail">&nbsp;</label>
+                <div class="controls">
+                    <button type="submit" class="submit btn btn-primary pull-right">Update Group</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

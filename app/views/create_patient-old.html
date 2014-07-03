@@ -1,0 +1,282 @@
+
+			<div class="container">
+            	<div class="row-fluid">
+                	<div class="span12 home_header_bar"><p class="company_name_txt">Company Name</p></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span3">
+                    	<ul class="lt_nav_ul">
+                            <li class="lt_nav_li"><a href="create_professional.html">Create Professional</a></li>
+                            <li class="lt_nav_li"><a href="#/createpatient">Create Patient</a></li>
+                            <li class="lt_nav_li"><a href="get_user_profile.html">Get User Profile</a></li>
+                            <li class="lt_nav_li"><a href="get_all_users.html">Get All Users</a></li>
+                        </ul>
+                    </div>
+					
+                    <div class="span9">
+                    	<h3>Create New Patient</h3><br />
+                            <div class="row-fluid">
+                            	<div class="span6">
+                                	<form class="form-horizontal" ng-submit="createPatient()">
+    <div class="control-group">
+    <label class="control-label label_style1" for="inputEmail">Person Title</label>
+    <div class="controls">
+    	<select ng-model="credentials.title">
+			<option value="Dr">Dr</option>
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Ms">Ms</option>
+        </select>
+    </div>
+    </div>
+    
+    
+    
+                                </div>
+                                <div class="span6">
+                                	&nbsp;
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="row-fluid">
+                            	<div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">First Name</label>
+                                        <div class="controls">
+                                        	<input type="text" id="firstname" placeholder="First Name" ng-model="credentials.firstname">
+                                        </div>
+                                    </div>
+                                </div>
+                            	<div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Middle Name</label>
+                                        <div class="controls">
+                                        	<input type="text" id="middlename" placeholder="Middle Name" ng-model="credentials.middlename">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            	<div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Last Name</label>
+                                        <div class="controls">
+                                        	<input type="text" id="lastname" placeholder="Last Name" ng-model="credentials.lastname">
+                                        </div>
+                                    </div>
+                                </div>                                                                                               
+                            </div>
+                            <div class="row-fluid">
+                            	<div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Birth Date</label>
+                                        <div class="controls">
+                                        	<input type="text" id="dob" placeholder="Birth Date" ng-model="credentials.dob">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Birth Place</label>
+                                        <div class="controls">
+                                        	<input type="text" id="birthplace" placeholder="Birth Place" ng-model="credentials.birthplace">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Maiden Name</label>
+                                        <div class="controls">
+                                        	<input type="text" id="maidenname" placeholder="Maiden Name" ng-model="credentials.maidenname">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                            <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Gender</label>
+                                        <div class="controls">
+                                        	<input style="opacity:1;" name="gender" type="radio" value="Male" ng-model="credentials.gender"/><span style="padding-left:20px;">Male</span>
+                                            <input style="opacity:1;" name="gender" type="radio" value="Female" /><span style="padding-left:20px;" ng-model="credentials.gender">Female</span>
+                                            <input style="opacity:1;" name="gender" type="radio" value="Others" /><span style="padding-left:20px;" ng-model="credentials.gender">Others</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Living arrangement</label>
+                                        <div class="controls">
+                                        	<select ng-model="credentials.livingarrangement">
+                                                <option value="Married">Married</option>
+                                                <option value="Single">Single</option>
+                                                <option value="Divorced">Divorced</option>
+                                        	</select>
+                                        </div>
+                                    </div>
+                                </div>
+                            	<div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Educational Level</label>
+                                        <div class="controls">
+                                        	<select ng-model="credentials.education">
+                                                <option value="BA">Bachelor of Arts</option>
+                                                <option value="MS">Master of Science</option>
+                                        	</select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="row-fluid">
+                            	<div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Languages</label>
+                                         <div class="controls">
+                                        	<input type="text" id="inputEmail" placeholder="Languages" ng-model="credentials.language">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Religion</label>
+                                        <div class="controls">
+                                        	<select ng-model="credentials.religion">
+                                                <option value="Hinduism">Hinduism</option>
+                                                <option value="Islam">Islam</option>
+                                        	</select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Ethinicity</label>
+                                        <div class="controls">
+                                        	<select ng-model="credentials.ethinicity">
+                                                <option value="Latino">Hispanic or Latino</option>
+                                                <option value="Caucasian">Caucasian</option>
+                                        	</select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                            	<div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Race</label>
+                                        <div class="controls">
+                                        	<select ng-model="credentials.race">
+                                                <option value="Asian">Asian</option>
+                                                <option avlue="Asian-American">asian - American</option>
+                                                <option value="Native-American">Native - American</option>
+                                        	</select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Communication Preference</label>
+                                        <div class="controls">
+                                        	<select ng-model="credentials.communicationpreference">
+                                                <option value="Telephone">Telephone</option>
+                                                <option avlue="Fax">Fax</option>
+                                                <option avlue="Letter">Letter</option>
+												<option value="Email">email</option>
+                                        	</select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Address</label>
+                                        <div class="controls">
+                                        	<select ng-model="credentials.address">
+                                                <option value="Home">Home</option>
+                                                <option value="Business">Business</option>
+                                                <option value="Employer">Employer</option>
+                                        	</select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Street</label>
+                                        <div class="controls">
+                                        	<input type="text" id="inputEmail" placeholder="Street" ng-model="credentials.street">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">City</label>
+                                        <div class="controls">
+                                        	<input type="text" id="inputEmail" placeholder="City" ng-model="credentials.city"> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">State/Province</label>
+                                        <div class="controls">
+                                        	<input type="text" id="inputEmail" placeholder="State/Province" ng-model="credentials.state">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                            	
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Postal code</label>
+                                        <div class="controls">
+                                        	<input type="text" id="inputEmail" placeholder="Postal code" ng-model="credentials.postalcode">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Email Address</label>
+                                        <div class="controls">
+                                        	<input type="email" id="inputEmail" placeholder="Email Address" ng-model="credentials.email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Phone Number</label>
+                                        <div class="controls">
+                                        	<input type="text" id="inputEmail" placeholder="Phone Number" ng-model="credentials.phone">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                            	<div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">Fax Number</label>
+                                        <div class="controls">
+                                        	<input type="text" id="inputEmail" placeholder="Fax Number" ng-model="credentials.fax">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	<div class="control-group">
+                                        <label class="control-label label_style1" for="inputEmail">&nbsp;</label>
+                                        <div class="controls">
+                                        	<button type="submit" class="btn btn-large">Create Patient</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                	
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            <!--<div class="container-fluid" style="margin:10px 0px 0px 10px; background-color:#ff0000;">123</div>-->

@@ -1,0 +1,183 @@
+<div class="main-cont">
+   <div class="container">
+      <div class="row-fluid">
+         <div class="span12 well">
+            <form id="frmUpdate" name="frmUpdate" ng-submit="updateProfile()" novalidate="">
+               <h3>Profile Update</h3>
+               <div id="flash" class="alert-box alert" ng-show="flash">{{flash}}</div>
+               <div class="row-fluid">
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4 control-label">First Name</div>
+                        <div class="span8"><input type="text" id="firstname" name="firstname" ng-model="firstname" class="input-medium" placeholder="Enter First Name.." required=""></div>
+                        <div class="custom-error" style="color:#F00"><span ng-show="frmUpdate.firstname.$error.required">FirstName is required.</span></div>
+                     </div>
+                  </div>
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4 control-label">Middle Name</div>
+                        <div class="span8"><input type="text" id="middlename" name="middlename" ng-model="middlename" class="input-medium" placeholder="Enter Middle Name.."></div>
+                     </div>
+                  </div>
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4 control-label">Last Name</div>
+                        <div class="span8"><input type="text" id="lastname" name="lastname" ng-model="lastname" class="input-medium" placeholder="Enter Last Name.." required=""></div>
+                        <div class="custom-error" style="color:#F00"><span ng-show="frmUpdate.lastname.$error.required">LastName is required.</span></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row-fluid">
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4">Living Arrangement</div>
+                        <div class="span8">
+                           <select id="live_id" name="live_id" ng-model="live_id" ng-options="option.id as option.name for option in livingarrangement" class="input-medium"></select>
+                        </div>
+                     </div>
+                  </div>
+                  <!--  <div class="span4">
+                     <div class="row-fluid ">
+                         <div class="span4 ">Religion</div>
+                         <div class="span8">
+                     <select id="religion_id" name="religion_id" ng-model="religion_id" ng-options="option.id as option.name for option in religion" class="input-medium" style="width:160px;"></select>
+                         
+                         </div>
+                     </div>
+                     </div> -->
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4">Education</div>
+                        <div class="span8">
+                           <select id="education_id" name="education_id[]" ng-model="education_id" ng-options="option.id as option.name for option in education" multiple="multiple" class="input-medium"></select>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!--                         <div class="row-fluid">
+                  <div class="span4">
+                  	<div class="row-fluid">
+                  		<div class="span4 ">Password</div>
+                  		<div class="span8"><input type="password" id="pass" name="pass" ng-model="pass" class="input-medium"  placeholder="Enter Password.."  required/></div>
+                  		<div class="custom-error" style="color:#F00"><span ng-show="frmUpdate.pass.$error.required">Password is required.</span></div>
+                  	</div>
+                  </div>
+                  <div class="span4 ">
+                  	<div class="row-fluid ">
+                  		<div class="span4">Confirm Password</div>
+                  		<div class="span8"><input type="password" id="re_pass" name="re_pass" ng-model="re_pass" class="input-medium" placeholder="Confirm Password.." pw-check="pass" required/></div>
+                  		<div class="custom-error" style="color:#F00"><span ng-show="frmUpdate.re_pass.$error.required">Password is required.</span></div>
+                  		<div class="custom-error" style="color:#F00" ng-show="frmUpdate.$error"> <span class="msg-error" ng-show="frmUpdate.re_pass.$error.pwmatch">Passwords not matching.</span></div>
+                  	</div>
+                  </div>
+                  </div> -->
+               <div class="row-fluid">
+                  <!--    <div class="span4">
+                     <div class="row-fluid ">
+                         <div class="span4">Languages</div>
+                         <div class="span8">
+                         <select id="language_id" name="language_id[]" ng-model="language_id" ng-options="option.id as option.name for option in languages" multiple="multiple" class="input-medium" style="width:160px;" ></select>
+                         </div>
+                     </div>
+                     </div> -->
+                  <div class="span8">
+                     <div class="row-fluid">
+                        <div class="span2">Gender</div>
+                        <div class="span10">
+                           <div data-toggle-name="gender" data-toggle="buttons-radio" class="btn-group">
+                              <button type="button" value="1" ng-class="getGenderClass(2)" class="btn btn-primary" data-toggle="button" ng-click="genderFemaleValue(2)">Female</button>
+                              <button type="button" value="2" ng-class="getGenderClass(1)" class="btn btn-primary" data-toggle="button" ng-click="genderMaleValue(1)">Male</button>
+                              <button type="button" value="3" ng-class="getGenderClass(3)" class="btn btn-primary" data-toggle="button" ng-click="genderOtherValue(3)">Other</button>
+                              <button type="button" value="4" ng-class="getGenderClass(4)" class="btn btn-primary" data-toggle="button" ng-click="genderUnknownValue(4)">Unknown</button>
+                           </div>
+                           <input type="hidden" value="" name="gender" ng-model="gender">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <h3>Address</h3>
+               <div class="row-fluid">
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4">Address</div>
+                        <div class="span8"><input type="text" id="street" name="street" ng-model="street" class="input-medium" placeholder="Address1.."></div>
+                     </div>
+                  </div>
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4">Street</div>
+                        <div class="span8"><input type="text" id="address" name="address" ng-model="address" class="input-medium" placeholder="Address2.."></div>
+                     </div>
+                  </div>
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4">Zip</div>
+                        <div class="span8"><input type="text" id="zip" name="zip" ng-model="zip" class="input-medium" placeholder="Zip.."></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row-fluid">
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4">City</div>
+                        <div class="span8"><input type="text" id="city" name="city" ng-model="city" class="input-medium" placeholder="City.."></div>
+                     </div>
+                  </div>
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4">State</div>
+                        <div class="span8"><input type="text" id="state" name="state" ng-model="state" class="input-medium" placeholder="State.."></div>
+                     </div>
+                  </div>
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4">Country</div>
+                        <div class="span8">
+                           <select id="countryid" name="countryid" ng-model="countryid" ng-options="option.id as option.name for option in country" class="input-medium"></select>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row-fluid">
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4">Email</div>
+                        <div class="span8"><input type="email" id="email" name="email" ng-model="email" class="input-medium" placeholder="Email.." required=""></div>
+                        <div class="custom-error" style="color:#F00">
+                           <span ng-show="frmUpdate.email.$error.required">Email is required.</span><span ng-show="frmUpdate.email.$error.email">Please enter a valid email address</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4">Phone</div>
+                        <div class="span8"><input type="text" id="phone" name="phone" ng-model="phone" class="input-medium" placeholder="Phone.."></div>
+                     </div>
+                  </div>
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4">Fax</div>
+                        <div class="span8"><input type="text" id="fax" name="fax" ng-model="fax" class="input-medium" placeholder="Fax.."></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row-fluid">
+                  <div class="span4">
+                     <div class="row-fluid">
+                        <div class="span4">Recipient</div>
+                        <div class="span8"><select id="selectedRecipient" name="selectedRecipient[]" ng-model="selectedRecipient" ng-options="option.party_id as option.person_fname + ' ' + option.person_lname  for option in recipient" multiple="multiple" class="input-medium"></select></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row-fluid">
+                  <div class="form-actions">
+                     <div class="pull-right">
+                        <button type="submit" name="submit" value="Sign Up" id="btn-primary-signup" ng-disabled="frmUpdate.$invalid" class="btn btn-primary">Update</button>
+                        <button class="btn btn-primary" type="button" value="Cancel" ng-click="undo()">Undo</button>
+                     </div>
+                  </div>
+            </div></form>
+            </div>
+         </div>
+      </div>
+   </div>

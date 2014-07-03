@@ -1,0 +1,31 @@
+<show-menu></show-menu>
+<div class="row">
+	<div class="widget box">
+			<div class="widget-header">
+				<h4><i class="icon-reorder"></i> Groups</h4>
+				<div class="toolbar no-padding">
+					<div class="btn-group">
+						<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+					</div>
+				</div>
+			</div>
+			<div class="widget-content">
+				<table class="table table-striped table-bordered table-hover table-checkable datatable">
+					<thead>
+						<tr>
+							<th>Group Name </th>
+							<th>ID</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="group in groups">
+							<td><a href="#/editgroup/{{group.id}}">{{group.displayName}}</a></td>
+							<td ng-bind="group.id"></td>
+							<td><a href="" ng-click="deleteGroup(group.id, $event)">Delete</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+</div>

@@ -1,0 +1,46 @@
+@import "bootstrap-sass/lib/bootstrap";
+
+/* Put your CSS here */
+body {
+    /*background:url(../images/bg-body.jpg) repeat;
+    background:url(../assets/img/grid-18px-masked.png) repeat;*/
+    color:#666666;
+}
+.borderwhite{
+    background:#FFFFFF;
+    border:solid 1px #CCCCCC;
+    -moz-border-radius: 15px;
+border-radius: 15px;
+font-size:11px;
+}
+
+label.valid {
+  width: 24px;
+  height: 24px;
+  background: url(assets/img/valid.png) center center no-repeat;
+  display: inline-block;
+  text-indent: -9999px;
+}
+label.error {
+  /*font-weight: bold;*/
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+
+.navbar-inner {
+    background-color:#51A351;           /*#2C2C2C;*/
+    background-image: -moz-linear-gradient(center top , #51A351);
+    background-repeat: repeat-x;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    min-height: 40px;
+}
+
+.navbar .nav .active > a, .navbar .nav .active > a:hover {
+    -moz-text-blink: none;
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    background-color: #0088CC;
+    color: #FFFFFF;
+}

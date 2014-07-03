@@ -1,0 +1,154 @@
+<div class="login">
+<div class="box">
+      <div class="content">
+         <!-- Login Formular -->
+         <form class="form-vertical login-form" id="frmLogin" name="frmLogin" ng-submit="loginUser()" novalidate form-autofill-fix>
+            <!-- Title -->
+            <h3 class="form-title">Sign In to your Account</h3>
+
+            <!-- Error Message -->
+            <div id="flash" class="alert fade in alert-danger" ng-show="flash">
+               <i class="icon-remove close" data-dismiss="alert"></i>
+               <span ng-bind="flash"></span>
+            </div>
+
+            <!-- Input Fields -->
+            <div class="form-group">
+               <!--<label for="username">Username:</label>-->
+               <div class="input-icon">
+                  <i class="icon-user"></i>
+                  <input type="text" name="username" class="form-control" placeholder="Username" autofocus="autofocus" ng-model="credentials.userid"  required auto-fill-sync/>
+               </div>
+            </div>
+            <div class="form-group">
+               <!--<label for="password">Password:</label>-->
+               <div class="input-icon">
+                  <i class="icon-lock"></i>
+                  <input type="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" auto-fill-sync/>
+               </div>
+            </div>
+            <!-- /Input Fields -->
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+               <label class="checkbox pull-left"><input type="checkbox" class="uniform" name="remember"> Remember me</label>
+               <button type="submit" class="submit btn btn-primary pull-right" ng-disabled="frmLogin.$invalid">
+                  Sign In <i class="icon-angle-right"></i>
+               </button>
+            </div>
+         </form>
+         <!-- /Login Formular -->
+
+         <!-- Register Formular (hidden by default) -->
+         <form class="form-vertical register-form"  ng-submit="registerUser()" novalidate id="frmRegistration" name="frmRegistration" style="display: none;">
+            <!-- Title -->
+            <h3 class="form-title">Sign Up for Free</h3>
+
+            <!-- Input Fields -->
+            <div class="form-group">
+               <div class="input-icon">
+                  <i class="icon-user"></i>
+                  <input type="text" ng-model="credentials.newuserid" name="username" class="form-control" placeholder="Username" autofocus="autofocus" required/>
+               </div>
+            </div>
+            <div class="form-group">
+               <div class="input-icon">
+                  <i class="icon-lock"></i>
+                  <input type="password" id="pass" name="pass" ng-model="credentials.pass" class="form-control" placeholder="Password" required/>
+               </div>
+            </div>
+            <div class="form-group">
+               <div class="input-icon">
+                  <i class="icon-ok"></i>
+                  <input type="password" id="re_pass" name="re_pass" ng-model="credentials.re_pass" class="form-control" placeholder="Confirm Password" pw-check="pass" required />
+               </div>
+               <div class="custom-error" style="color:#F00" ng-show="frmRegistration.$error"> <span class="msg-error" ng-show="frmRegistration.re_pass.$error.pwmatch">Passwords not matching.</span></div>
+            </div>
+            <div class="form-group">
+               <div class="input-icon">
+                  <i class="icon-envelope"></i>
+                  <input type="email"ng-model="credentials.email" id="email" name="email" ng-change="checkemail()" class="form-control" placeholder="Email address" required unique-email />
+                  <span ng-show="frmRegistration.email.$error.email">Please enter a valid email address</span>
+               </div>
+            </div>
+          <!--   <div class="form-group spacing-top">
+               <label class="checkbox"><input type="checkbox" class="uniform" name="remember" data-rule-required="true" data-msg-required="Please accept ToS first."> I agree to the <a href="javascript:void(0);">Terms of Service</a></label>
+               <label for="remember" class="has-error help-block" generated="true" style="display:none;"></label>
+            </div> -->
+            <!-- /Input Fields -->
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+               <button type="button" class="back btn btn-default pull-left">
+                  <!-- <i class="icon-angle-left"></i> --> Login</i>
+               </button>
+               <button type="submit" class="submit btn btn-primary pull-right" ng-disabled="frmRegistration.$invalid"> 
+                  Sign Up <i class="icon-angle-right"></i>
+               </button>
+            </div>
+         </form>
+         <!-- /Register Formular -->
+      </div> <!-- /.content -->
+
+      <!-- Forgot Password Form -->
+      <div class="inner-box">
+         <div class="content">
+            <!-- Close Button -->
+            <i class="icon-remove close hide-default"></i>
+
+            <!-- Link as Toggle Button -->
+            <a href="" class="forgot-password-link">Forgot Password?</a>
+
+            <!-- Forgot Password Formular -->
+            <form class="form-vertical forgot-password-form hide-default"  ng-submit="forgotPassword()" novalidate id="frmForgotPassword" name="frmForgotPassword">
+               <!-- Input Fields -->
+               <div class="form-group">
+                  <!--<label for="email">Email:</label>-->
+                  <div class="input-icon">
+                     <i class="icon-envelope"></i>
+                     <input type="text" id="userid" name="userid" ng-model="credentials.userid" class="form-control" placeholder="Enter your username" required/>
+                  </div>
+               </div>
+               <!-- /Input Fields -->
+
+               <button type="submit" class="submit btn btn-default btn-block" ng-disabled="frmForgotPassword.$invalid">
+                  Submit
+               </button>
+            </form>
+            <!-- /Forgot Password Formular -->
+
+            <!-- Shows up if reset-button was clicked -->
+            <div class="forgot-password-done hide-default">
+               <i class="icon-ok success-icon"></i> <!-- Error-Alternative: <i class="icon-remove danger-icon"></i> -->
+               <span>Great. We have sent you an email.</span>
+            </div>
+         </div> <!-- /.content -->
+      </div>
+      <!-- /Forgot Password Form -->
+   </div>
+   <div class="footer">
+      <a href="" class="sign-up">Don't have an account yet? <strong>Sign Up</strong></a>
+   </div>
+</div>
+   <!-- /Login Box -->
+
+   <!-- Single-Sign-On (SSO) -->
+<!--    <div class="single-sign-on">
+      <span>or</span>
+
+      <button class="btn btn-facebook btn-block">
+         <i class="icon-facebook"></i> Sign in with Facebook
+      </button>
+
+      <button class="btn btn-twitter btn-block">
+         <i class="icon-twitter"></i> Sign in with Twitter
+      </button>
+
+      <button class="btn btn-google-plus btn-block">
+         <i class="icon-google-plus"></i> Sign in with Google
+      </button>
+   </div> -->
+   <!-- /Single-Sign-On (SSO) -->
+
+   <!-- Footer -->
+   

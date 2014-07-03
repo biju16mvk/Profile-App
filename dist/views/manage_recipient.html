@@ -1,0 +1,100 @@
+<div class="container">
+	<div class="row-fluid">
+		<div class="span12"><h1>Manage Recipient</h1><p>&nbsp;</p></div>
+	</div>
+	<div class="row-fluid">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Printer</th>
+					<th>Draft Folder</th>					
+				</tr>
+			</thead>
+			<thead>
+				<tr ng-repeat="recipients in recipient">
+					<td>{{$index + 1}}</td>
+					<td>{{recipients.person_fname}} {{recipients.person_lname}}</td>
+					<td>{{recipients.user_name}}</td>
+					<td>{{recipients.recipient_printer}}</td>
+					<td>{{recipients.recipient_draft}}</td>
+					<td><a href="#/managerecipient/{{recipients.party_id}}">Edit</a></td>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<div class="well">
+		<div id="flash" class="alert-box alert" ng-show="flash">{{flash}}</div>
+		<form id="frmmanageRegistration" name="frmmanageRegistration" ng-submit="addRecipient()" class="form-horizontal" novalidate="">
+			<div class="row-fluid">
+				<div class="span12"><h3>Add/Edit Recipient</h3><p>&nbsp;</p></div>
+			</div>
+			<div class="row-fluid">
+				<div class="span4">
+					<div class="row-fluid control-group">
+						<label class="control-label" for="newuserid">First Name</label>
+						<div class="controls"><input type="text" id="recipient_fname" name="recipient_fname" ng-model="recipient_fname" class="input-medium" placeholder="Enter First Name.." required="">
+						<div class="custom-error" style="color:#F00"><span ng-show="frmmanageRegistration.recipient_fname.$error.required">FirstName is required.</span></div>
+						<input type="hidden" name="party_id" ng-model="party_id" value="">
+					</div>
+				</div>
+			</div>
+			<div class="span4">
+				<div class="row-fluid control-group">
+					<label class="control-label" for="newuserid">Last Name</label>
+					<div class="controls"><input type="text" id="recipient_lname" name="recipient_lname" ng-model="recipient_lname" class="input-medium" placeholder="Enter Last Name.." required="">
+					<div class="custom-error" style="color:#F00"><span ng-show="frmmanageRegistration.recipient_lname.$error.required">Lastname is required.</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="row-fluid control-group">
+				<label class="control-label">Email</label>
+				<div class="controls"><input type="email" id="recipient_email" name="recipient_email" ng-model="recipient_email" class="input-medium" placeholder="Enter Email.." required="" unique-email="">
+				<div class="custom-error" style="color:#F00"><span ng-show="frmmanageRegistration.recipient_email.$error.required">Email is required.</span><span ng-show="frmmanageRegistration.recipient_email.$error.email">Please enter a valid email address</span></div>
+				<div class="custom-error" style="color:#F00" ng-show="frmmanageRegistration.$error"> <span class="msg-error" ng-show="frmmanageRegistration.recipient_email.$error.uniqueEmail">Email already in our database.</span></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span4">
+		<div class="row-fluid control-group">
+			<label class="control-label">Printer Name</label>
+			<div class="controls"><input type="text" id="printer_name" name="printer_name" ng-model="printer_name" class="input-medium" placeholder="Enter Printer Name.."></div>
+		</div>
+	</div>
+	<div class="span4">
+		<div class="row-fluid control-group">
+			<label class="control-label">Printer Url</label>
+			<div class="controls"><input type="text" id="printer_url" name="printer_url" ng-model="printer_url" class="input-medium" placeholder="Enter Printer URI.."></div>
+		</div>
+	</div>
+	<div class="span4">
+		<div class="row-fluid control-group">
+			<label class="control-label">Draft Folder</label>
+			<div class="controls"><input type="text" id="draft_folder" name="draft_folder" ng-model="draft_folder" class="input-medium" placeholder="Enter Draft Folder.."></div>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span4">
+		<div class="row-fluid control-group">
+			<label class="control-label">Upload Url</label>
+			<div class="controls"><input type="text" id="upload_url" name="upload_url" ng-model="upload_url" class="input-medium" placeholder="Enter Upload Url.."></div>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+<div class="form-actions">
+	<div class="pull-right">
+		<button class="btn btn-primary" type="submit" value="Save" ng-disabled="frmmanageRegistration.$invalid">Save</button>
+		<!-- <a class="btn btn-primary">Cancel</a> -->
+	</div>
+</div>
+</div>
+</form>
+</div>
+</div>

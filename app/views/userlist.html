@@ -1,0 +1,71 @@
+<show-menu></show-menu>
+<div class="row">
+	<div class="widget box">
+			<div class="widget-header">
+				<h4><i class="icon-reorder"></i> Professional Data</h4>
+				<div class="toolbar no-padding">
+					<div class="btn-group">
+						<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+					</div>
+				</div>
+			</div>
+			<div class="widget-content">
+				<table class="table table-striped table-bordered table-hover table-checkable datatable">
+					<thead>
+						<tr>
+							<th>First Name (Click on the name to edit)</th>
+							<th>Middle Name</th>
+							<th>Last Name</th>
+							<th>ID</th>
+							<th>Gender</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="professionals in professional">
+							<td><a href="#/editprofessional/{{professionals.id}}">{{professionals.wso2Extension.professional.proffname}}</a></td>
+							<td  ng-bind="professionals.wso2Extension.professional.profmname"></td>
+							<td  ng-bind="professionals.wso2Extension.professional.proflname"></td>
+							<td ng-bind="professionals.id"></td>
+							<td  ng-bind="professionals.wso2Extension.professional.profgeneder"></td>
+							<td><a ng-click="deleteProfessional(professionals.id, $event)" href="">Delete</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+	<div class="widget box">
+			<div class="widget-header">
+				<h4><i class="icon-reorder"></i> Patient Data</h4>
+				<div class="toolbar no-padding">
+					<div class="btn-group">
+						<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+					</div>
+				</div>
+			</div>
+			<div class="widget-content">
+				<table class="table table-striped table-bordered table-hover table-checkable datatable">
+					<thead>
+						<tr>
+							<th>First Name (Click on the name to edit)</th>
+							<th>Middle Name</th>
+							<th>Last Name</th>
+							<th>ID</th>
+							<th>Gender</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="patients in patient">
+							<td><a href="#/editpatient/{{patients.id}}">{{patients.wso2Extension.patient.patientfname}}</a></td>
+							<td  ng-bind="patients.wso2Extension.patient.patientmname"></td>
+							<td  ng-bind="patients.wso2Extension.patient.patientlname"></td>
+							<td ng-bind="patients.id"></td>
+							<td  ng-bind="patients.wso2Extension.patient.patientgender"></td>
+							<td><a ng-click="deletePatient(patients.id, $event)" href="">Delete</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+</div>

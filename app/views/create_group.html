@@ -1,0 +1,58 @@
+<show-menu></show-menu>
+<form ng-submit="createGroup()" id="frmCreateGroup" name="frmCreateGroup" novalidate form-autofill-fix>
+    <div class="widget-header">
+        <h4><strong>Create Group</strong></h4>
+    </div>
+    <div class="row">
+        <div class="col-md-4">       
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Group Title<span class="aesterisk">*</span></label>
+                <div class="controls">
+                    <input type="text" id="grouptitle" placeholder="First Name" ng-model="credentials.grouptitle" class="form-control" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="control-group">
+                <label class="control-label label_style1" for="inputEmail">&nbsp;</label>
+                <div class="controls" ng-hide="show">
+                    <a class="submit btn btn-primary" ng-click="addUserstoGroup()" ng-disabled="frmCreateGroup.$invalid">Next</a>
+                    <button type="submit" class="submit btn btn-primary pull-right" ng-disabled="frmCreateGroup.$invalid">Create Group</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="row" ng-show="show">
+        <div class="col-md-4">       
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">All Users</label><span><a href='' ng-click="selectAllLeft('users')" style="float:right;">Select All</a></span>
+                <div class="controls">
+                    <select multiple="multiple" ng-model="users" class="form-control" id="users">
+                        <option ng-repeat="alluser in allusers" value="{{alluser.id}}~{{alluser.userName}}" ng-bind="alluser.value"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="show">
+
+        <div class="col-md-4">
+            <div class="control-group">
+                <label class="control-label label_style1" for="inputEmail">&nbsp;</label>
+                <div class="controls">
+                    <button type="submit" class="submit btn btn-primary pull-right">Create Group</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+
+</div>
+<!--<div class="container-fluid" style="margin:10px 0px 0px 10px; background-color:#ff0000;">123</div>-->
+</body>
+</html>

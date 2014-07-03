@@ -1,0 +1,226 @@
+<show-menu></show-menu>
+<form ng-submit="createProfessional($event)" id="frmCreateProfessional" name="frmCreateProfessional" novalidate>
+    <div class="widget-header">
+        <h4><strong ng-bind="title"></strong></h4>
+    </div>
+    <div class="row">
+        <div class="col-md-4">       
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Person Title</label>
+                <div class="controls">
+                    <select ng-model="credentials.title" class="form-control">
+                        <option value="Dr">Dr</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Ms">Ms</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+     		<div class="form-group">
+                <label class="control-label label_style1" for="inputPassword">Category</label>
+                <div class="controls">
+                    <select multiple="multiple" ng-model="credentials.category" class="form-control">
+                        <option ng-repeat = "categorydata in categorydatas" value="{{categorydata}}">{{categorydata}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputPassword">NPI<span class="aesterisk">*</span></label>
+                <div class="controls">
+                    <input type="text" ng-model="credentials.npi" class="form-control" placeholder="NPI value" required/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">First Name<span class="aesterisk">*</span></label>
+                <div class="controls">
+                <div class="input-group">
+                  <input type="text" id="firstname" placeholder="First Name" ng-model="credentials.firstname" class="form-control" autocomplete="off" ng-enter="searchByName()" required>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="searchByName()"><span class="glyphicon glyphicon-search"></span></button>
+                  </span>
+                </div>
+                </div>
+                <div  ng-show="usersuggestions" style="width:355px; height:auto;background-color:white">
+                    <ul class="search-list">
+                        <li style="cursor:pointer" ng-repeat="usersuggestion in usersuggestions" ng-click="getUserByName($event, usersuggestion.NPI)">
+                            {{usersuggestion.ProviderFirstName}} {{usersuggestion.ProviderLastName}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Middle Name</label>
+                <div class="controls">
+                    <input type="text" id="middlename" placeholder="Middle Name" ng-model="credentials.middlename" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Last Name</label>
+                <div class="controls">
+                    <input type="text" id="lastname" placeholder="Last Name" ng-model="credentials.lastname" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Birth Date</label>
+                <div class="controls">
+                    <input ui-date="dateOptions" ui-date-format="DD, d MM, yy" type="text" id="dob" placeholder="Birth Date" ng-model="credentials.dob" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Gender</label>
+                <div class="controls">
+					<label class="radio-inline">
+					 <input name="gender" type="radio" value="M" ng-model="credentials.gender"/>Male
+					</label>
+					<label class="radio-inline">
+					  <input name="gender" type="radio" value="F" ng-model="credentials.gender" />Female
+					</label>
+					<label class="radio-inline">
+					<input name="gender" type="radio" value="Others" ng-model="credentials.gender"/>Others
+					</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Living arrangement</label>
+                <div class="controls">
+                    <select ng-model="credentials.livingarrangement" class="form-control">
+                        <option ng-repeat = "livingarrangementdata in livingarrangementdatas" value="{{livingarrangementdata}}">{{livingarrangementdata}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Educational Level</label>
+                <div class="controls">
+                    <select ng-model="credentials.education" class="form-control">
+                        <option ng-repeat = "educationdata in educationdatas" value="{{educationdata}}">{{educationdata}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Languages</label>
+                <div class="controls">
+                    <input type="text" id="inputEmail" placeholder="Languages" ng-model="credentials.language" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Religion</label>
+                <div class="controls">
+                    <select ng-model="credentials.religion" class="form-control">
+                        <option ng-repeat = "religiondata in religiondatas" value="{{religiondata}}">{{religiondata}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Address</label>
+                <div class="controls">
+                    <select ng-model="credentials.address" class="form-control">
+                        <option ng-repeat = "addressdata in addressdatas" value="{{addressdata}}">{{addressdata}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Street</label>
+                <div class="controls">
+                    <input type="text" id="inputEmail" placeholder="Street" ng-model="credentials.street" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">City</label>
+                <div class="controls">
+                    <input type="text" id="inputEmail" placeholder="City" ng-model="credentials.city" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">State/Province</label>
+                <div class="controls">
+                    <input type="text" id="inputEmail" placeholder="State/Province" ng-model="credentials.state" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Postal code</label>
+                <div class="controls">
+                    <input type="text" id="inputEmail" placeholder="Postal code" ng-model="credentials.postalcode" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Phone Number</label>
+                <div class="controls">
+                    <input type="text" id="inputEmail" placeholder="Phone Number" ng-model="credentials.phone" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Fax Number</label>
+                <div class="controls">
+                    <input type="text" id="inputEmail" placeholder="Fax Number" ng-model="credentials.fax" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="control-group">
+                <label class="control-label label_style1" for="inputEmail">&nbsp;</label>
+                <div class="controls">
+                    <button type="submit" class="submit btn btn-primary pull-right" ng-bind="buttonText" ng-disabled="frmCreateProfessional.$invalid"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+</div>
+<!--<div class="container-fluid" style="margin:10px 0px 0px 10px; background-color:#ff0000;">123</div>-->
+</body>
+</html>

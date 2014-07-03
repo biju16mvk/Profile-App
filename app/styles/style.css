@@ -1,0 +1,48 @@
+/*stylesheet*//*
+html, body {
+	background: transparent;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	font-family:Arial, Helvetica, sans-serif;
+}
+body {
+	line-height: 1;
+}
+#container{width:1000px; background-color:#FFFFFF; height:auto;}
+#header{background-color:#666666;height:75px;}
+#logo{float:left;width:150px;padding-top:10px; height:90%;color:#FFFFFF;font-size:18px; font-weight:bold;}
+#menu{float:left;width:450px;padding-top:50px;color:#FFFFFF}
+#menu a{font-size:14px;color:#FFFFFF}
+#menu a:hover{color:#CCCCCC;}
+
+
+#content{background-color:#EEEEEE;min-height:600px;width:100%; height:auto; float:left; }
+#content #contentinner{ float:left; margin-left:2.5%;background-color:#FFFFFF;min-height:580px; height:auto;width:95%; border:1px solid #999999; padding-top:10px;}
+#titlebar{float:left; margin-top:15px; width:100%;}
+#title{float:left;font-size:18px; color:#333333; font-weight:bold;  padding-left:20px; text-align:left}
+
+#reports{float:left; width:100%;margin-top:20px;}
+#reports table{float:left; width:95%; padding-left:5%;}
+#reports table th{ font-size:14px; font-weight:normal; background-color:#FFFFFF;}
+
+#reports .odd{font-size:14px; font-weight:normal; background-color:#D2E9FF; text-align:center;}
+#reports .oddtot{font-size:14px; font-weight:normal; background-color:#D2E9FF; text-align:center;margin-bottom:20px;}
+
+#reports .even{font-size:14px; font-weight:normal; background-color:#BFFFBF; text-align:center;}
+#reports .eventot{font-size:14px; font-weight:normal; background-color:#BFFFBF; text-align:center;margin-bottom:20px;}
+#reports .spacetr{ height:30px; background-color:#FFFFFF;}
+
+#reports .spacetr{ height:30px; background-color:#FFFFFF;}
+#reports .spacetrsmall{height:5px; background-color:#FFFFFF;}
+
+#reports table tr table tr{text-align:center;}
+#reports table tr table tr td a{ color:#3300FF;}
+#reports .odd td p{ color:#0075EA; font-weight:bold;background-color: #D2E9FF;}
+
+.tblbkg{ background-color:#D2E9FF !important;font-weight:bold !important; color:#0060BF}
+
+#footer{float:left;width:1000px;background-color:#666666;text-align:center;color:#FFFFFF; height:50px;}
+#footer .copyr{ float:left; font-size:12px; color:#FFFFFF; margin-top:10px; text-align:center; width:500px;}*/
+

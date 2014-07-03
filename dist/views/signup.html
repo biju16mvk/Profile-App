@@ -1,0 +1,80 @@
+<div class="main-cont">
+   <div class="container">
+      <div class="row-fluid">
+         <div class="span8 well wrap">
+            <div class="row-fluid">
+               <h2>Create an Account </h2>
+               <div class="divider"></div>
+            </div>
+            <div class="row-fluid">
+               <div class="span6 left-cont">
+                  <h4>Data in any file or format is securely transferred from a PC or Mac to the recipient’s destination of choice. Automatically.</h4>
+                  <div class="row-fluid">
+                     <div class="span2">
+                        <span class="icon-print icon"></span>
+                     </div>
+                     <div class="span10">
+                        <h3> Print2Share </h3>
+                        <p>consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                     </div>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="row-fluid">
+                     <div class="span2">
+                        <span class="icon-mail-5 icon"></span>
+                     </div>
+                     <div class="span10">
+                        <h3> Send2Share </h3>
+                        <p>consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                     </div>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="row-fluid">
+                     <div class="span2">
+                        <span class="icon-camera-5 icon"></span>
+                     </div>
+                     <div class="span10">
+                        <h3> Snap2Share </h3>
+                        <p>consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                     </div>
+                  </div>
+                  <div class="divider"></div>
+               </div>
+               <div class="span6 log-well-dark">
+                  <h3> Create an Account
+                     <span class="switch">
+                     or  <a href="#/login"> Sign In </a>
+                     </span>
+                  </h3>
+                  <div id="flash" class="alert-box alert" ng-show="flash">{{flash}}</div>
+                  <form class="bs-docs-example" ng-submit="registerUser()" novalidate="" id="frmRegistration" name="frmRegistration">
+                     <fieldset>
+                        <label>Email address or Username</label>
+                        <input type="email" ng-model="newuserid" id="newuserid" name="newuserid" class="input-medium" placeholder="Enter Username.." required="" unique-email="">
+                        <div class="custom-error" style="color:#F00"><span ng-show="frmRegistration.newuserid.$error.required">Username is required.</span><span ng-show="frmRegistration.newuserid.$error.email">Please enter a valid email address</span></div>
+                        <div class="custom-error" style="color:#F00" ng-show="frmRegistration.$error"> <span class="msg-error" ng-show="frmRegistration.newuserid.$error.uniqueEmail">Username not available</span></div>
+                        <label>Password</label>
+                        <input type="password" id="pass" name="pass" ng-model="pass" class="input-medium" placeholder="Enter Password.." required="">
+                        <div class="custom-error" style="color:#F00"><span ng-show="frmRegistration.pass.$error.required">Password is required.</span></div>
+                        <label>Confirm Password</label>
+                        <input type="password" id="re_pass" name="re_pass" ng-model="re_pass" class="input-medium" placeholder="Confirm Password.." pw-check="pass" required="">
+                        <div class="custom-error" style="color:#F00"><span ng-show="frmRegistration.re_pass.$error.required">Password is required.</span></div>
+                        <div class="custom-error" style="color:#F00" ng-show="frmRegistration.$error"> <span class="msg-error" ng-show="frmRegistration.re_pass.$error.pwmatch">Passwords not matching.</span></div>
+                        <!--  <label class="checkbox">
+                           <input type="checkbox"><span class="metro-checkbox">Check me out</span> 
+                           </label>-->
+                        <button class="btn btn-success" type="submit" name="submit" value="Sign Up" id="btn-primary-signup" ng-disabled="frmRegistration.$invalid">Submit</button>
+                        <!-- <span class="help-block"> <a href="#"> Reset your password? </a> </span> -->
+                     </fieldset>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row-fluid">
+         <div class="span8 bottom-shadow">
+            <img src="app/images/desktop-shadow-full.png" alt="" border="0">
+         </div>
+      </div>
+   </div>
+</div>

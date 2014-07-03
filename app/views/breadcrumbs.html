@@ -1,0 +1,11 @@
+<div class="crumbs">
+     <ul id="breadcrumbs" class="breadcrumb">
+       <li> <i class="icon-home"></i> <a href="#/home/{{PartyUniqueID}}">Dashboard</a> </li>
+        <li ng-repeat="breadcrumb in breadcrumbs.getAll()|limitTo:1">
+      <ng-switch on="$last">
+       
+        <span ng-switch-default><a href="">{{breadcrumb.name}}</a></span>
+       </ng-switch>
+    </li>
+   </ul>
+</div> 

@@ -1,0 +1,149 @@
+<div class="container" id="profile_template" ng-controller="HomeCtrl">
+	<div class="row-fluid"><p>&nbsp;</p></div>
+       
+			<div class="well">
+				<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid">
+								<div class="span4">User Name</div>
+								<div class="span8">{{UserName}}</div>
+							</div>
+						</div>
+						<div class="span4 offset1"><a href="#" class="btn btn-danger"><i class="icon-print"></i>&nbsp;Download Fluent XA</a>
+						</div>
+			</div>
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid">
+								<div class="span4">First Name</div>
+								<div class="span8" id="firstname">{{FirstName}}</div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid">
+								<div class="span4">Middle Name</div>
+								<div class="span8" id="middlename">{{MiddleName}}</div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid">
+								<div class="span4">Last Name</div>
+								<div class="span8" id="lastname">{{LastName}}</div>
+							</div>
+						</div>
+					</div>	
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid">
+								<div class="span4">Living Arrangement</div>
+								<div class="span8" id="livingstatus">{{LivingStatus}}</div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid">
+								<div class="span4">Religion</div>
+								<div class="span8" id="religion">{{Religion}}</div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid">
+								<div class="span4">Education</div>
+								<div class="span8" id="educationname">{{EducationName}}</div>
+							</div>
+						</div>
+
+					</div>	
+					
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid">
+								<div class="span4">Languages Known</div>
+								<div class="span8" id="languagename">{{LanguageName}}</div>
+							</div>
+						</div>						
+					</div>
+
+			
+
+
+					<div class="row-fluid">
+						<h2>Address</h2>
+					</div>				
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid">
+								<div class="span4">Address1 </div>
+								<div class="span8" id="address">{{Address}}</div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid">
+								<div class="span4">Address2</div>
+								<div class="span8" id="street">{{Street}}</div>
+							</div>
+						</div>
+					</div>		
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid">
+								<div class="span4">City</div>
+								<div class="span8" id="city">{{City}}</div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid">
+								<div class="span4">State</div>
+								<div class="span8" id="state">{{State}}</div>
+							</div>
+						</div>
+					</div>	
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid">
+								<div class="span4">Zip</div>
+								<div class="span8" id="zip">{{ZipCode}}</div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid">
+								<div class="span4">Email</div>
+								<div class="span8" id="email">{{Email}}</div>
+							</div>
+						</div>
+					</div>	
+					<div class="row-fluid">
+						<div class="span4">
+							<div class="row-fluid">
+								<div class="span4">Phone</div>
+								<div class="span8" id="phone">{{Phone}}</div>
+							</div>
+						</div>
+						<div class="span4 offset1">
+							<div class="row-fluid">
+								<div class="span4">Fax</div>
+								<div class="span8" id="fax">{{Fax}}</div>
+							</div>
+						</div>
+					</div>	
+					<div class="row-fluid">
+						
+						<div class="span4 offset1">
+							<div class="row-fluid">
+								<div class="span4">Physician</div>
+								<div class="span8" id="physician_details"></div>
+								
+							</div>
+						</div>
+					</div>
+					<div class="row-fluid">
+						
+						<div class="span4 offset1">
+							<div class="row-fluid">
+								<a href="#/edit/{{PartyID}}" class="btn btn-primary"><i class="icon-edit"></i>&nbsp;Update Details</a>
+								
+							</div>
+						</div>
+					</div>	
+				</div>
+			<a id="manage_phy" href="#">Manage Physician</a>
+</div>

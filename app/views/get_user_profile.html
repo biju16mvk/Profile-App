@@ -1,0 +1,61 @@
+<show-menu></show-menu>
+				<div class="row">
+					<div class="col-sm-4">
+						<span><h2>Professional Users</h2></span>
+						<ul class="nav nav-list " id="left-content-area">
+							<li ng-repeat = "professionals in professional">
+								<a href='' ng-click="getUserbyId(professionals.id)">{{professionals.wso2Extension.professional.proffname}} {{professionals.wso2Extension.professional.profmname}} {{professionals.wso2Extension.professional.proflname}}</a>
+							</li>	
+						</ul>
+						<span><h2>Patients</h2></span>
+						<ul class="nav nav-list " id="left-content-area">
+							<li ng-repeat = "patients in patient">
+								<a href='' ng-click="getUserbyId(patients.id)">{{patients.wso2Extension.patient.patientfname}} {{patients.wso2Extension.patient.patientmname}} {{patients.wso2Extension.patient.patientlname}}</a>
+							</li>	
+						</ul>
+					</div>
+					<div class="col-sm-8">
+						<div ng-repeat="userdata in userdatas.wso2Extension" class="well well-style"> 
+		<span  ng-if="userdata.profcatog"> <strong>Category :</strong>  {{userdata.profcatog}} <br/></span>
+		<span  ng-if="userdata.proftitle"> <strong>Title :</strong>  {{userdata.proftitle}} <br/></span>
+		<span  ng-if="userdata.proffname"> <strong>First Name :</strong>  {{userdata.proffname}} <br/></span>
+		<span  ng-if="userdata.profmname"> <strong>Middle Name :</strong>  {{userdata.profmname}} <br/></span>
+		<span  ng-if="userdata.proflname"> <strong>Last Name :</strong>  {{userdata.proflname}} <br/></span>
+		<span  ng-if="userdata.profgeneder "> <strong>Gender :</strong>  {{userdata.profgeneder }} <br/></span>
+		<span  ng-if="userdata.dob "> <strong>DOB :</strong>  {{userdata.dob}} <br/></span>
+		<span  ng-if="userdata.profeducation"> <strong>Education :</strong>  {{userdata.profeducation}} <br/></span>
+		<span  ng-if="userdata.profliving"> <strong>Living Arrangement :</strong>  {{userdata.profliving}} <br/></span>
+		<span  ng-if="userdata.proflanguages "> <strong>Languages Known :</strong>  {{userdata.proflanguages }} <br/></span>
+		<span  ng-if="userdata.profrelegion"> <strong>Religion :</strong>  {{userdata.profrelegion}} <br/></span>
+		<span  ng-if="userdata.profaddress"> <strong>Address :</strong>  {{userdata.profaddress}} <br/></span>
+		<span  ng-if="userdata.profstreet"> <strong>Street :</strong>  {{userdata.profstreet}} <br/></span>
+		<span  ng-if="userdata.profcity"> <strong>City :</strong>  {{userdata.profcity }} <br/></span>
+		<span  ng-if="userdata.profstate"> <strong>State :</strong>  {{userdata.profstate}} <br/></span>
+		<span  ng-if="userdata.profPO"> <strong>Post :</strong>  {{userdata.profPO}} <br/></span>
+		<span  ng-if="userdata.profphonrno"> <strong>Phone :</strong>  {{userdata.profphonrno}} <br/></span>
+		<span  ng-if="userdata.proffaxno "> <strong>Fax :</strong>  {{userdata.proffaxno}} <br/></span>
+		
+		
+		<span  ng-if="userdata.patientcatog"> <strong>Category :</strong>  {{userdata.patientcatog}} <br/></span>
+		<span  ng-if="userdata.patienttitle"> <strong>Title :</strong>  {{userdata.patienttitle}} <br/></span>
+		<span  ng-if="userdata.patientfname"> <strong>First Name :</strong>  {{userdata.patientfname}} <br/></span>
+		<span  ng-if="userdata.patientmname"> <strong>Middle Name :</strong>  {{userdata.patientmname}} <br/></span>
+		<span  ng-if="userdata.patientlname"> <strong>Last Name :</strong>  {{userdata.patientlname}} <br/></span>
+		<span  ng-if="userdata.patientgeneder "> <strong>Gender :</strong>  {{userdata.patientgeneder }} <br/></span>
+		<span  ng-if="userdata.dob "> <strong>DOB :</strong>  {{userdata.dob}} <br/></span>
+		<span  ng-if="userdata.patienteducation"> <strong>Education :</strong>  {{userdata.patienteducation}} <br/></span>
+		<span  ng-if="userdata.patientliving"> <strong>Living Arrangement :</strong>  {{userdata.patientliving}} <br/></span>
+		<span  ng-if="userdata.patientlanguages "> <strong>Languages Known :</strong>  {{userdata.patientlanguages }} <br/></span>
+		<span  ng-if="userdata.patientrelegion"> <strong>Religion :</strong>  {{userdata.patientrelegion}} <br/></span>
+		<span  ng-if="userdata.patientaddress"> <strong>Address :</strong>  {{userdata.patientaddress}} <br/></span>
+		<span  ng-if="userdata.patientstreet"> <strong>Street :</strong>  {{userdata.patientstreet}} <br/></span>
+		<span  ng-if="userdata.patientcity"> <strong>City :</strong>  {{userdata.patientcity }} <br/></span>
+		<span  ng-if="userdata.patientstate"> <strong>State :</strong>  {{userdata.patientstate}} <br/></span>
+		<span  ng-if="userdata.patientPO"> <strong>Post :</strong>  {{userdata.patientPO}} <br/></span>
+		<span  ng-if="userdata.patientphonrno"> <strong>Phone :</strong>  {{userdata.patientphonrno}} <br/></span>
+		<span  ng-if="userdata.patientfaxno "> <strong>Fax :</strong>  {{userdata.patientfaxno}} <br/></span>
+	</div>
+				
+<!--<div class="container-fluid" style="margin:10px 0px 0px 10px; background-color:#ff0000;">123</div>-->
+</body>
+</html>

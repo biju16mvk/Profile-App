@@ -1,0 +1,65 @@
+<show-menu></show-menu>
+<div>
+    <div class="widget-header">
+        <h4><strong ng-bind="title"></strong></h4>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+         <div class="form-group">
+                <label class="control-label label_style1" for="inputPassword">Search by Name</label>
+                <div class="controls">
+                    <div class="input-group">
+                      <input type="text" ng-model="npiname" class="form-control" ng-enter="searchByName()"/>
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="searchByName()"><span class="glyphicon glyphicon-search"></span></button>
+                      </span>
+                    </div>
+                    <div  ng-show="userdatas" style="width:355px; height:auto;background-color:white">
+                        <ul class="search-list">
+                            <li style="cursor:pointer" ng-repeat="usersuggestion in usersuggestions" ng-click="selectName($event, usersuggestion._source['NPI'])">
+                                {{usersuggestion._source['Provider First Name']}} {{usersuggestion._source['Provider Last Name (Legal Name)']}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="col-md-4">       
+            <div class="form-group">
+                <label class="control-label label_style1" for="inputEmail">Search by NPI ID</label>
+                <div class="controls">
+                    <div class="input-group">
+                      <input type="text" ng-model="npiid" class="form-control" ng-enter="searchByNpiID()"/>
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="searchByNpiID()"><span class="glyphicon glyphicon-search"></span></button>
+                      </span>
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </div> 
+    <div ng-show="formdata" class="row well well-style">
+        <span  ng-if="formdata['Provider First Name']"> <strong>First Name :</strong>  {{formdata['Provider First Name']}} <br/></span>
+        <span  ng-if="formdata['Provider Middle Name']"> <strong>Middle Name :</strong>  {{formdata['Provider Middle Name']}} <br/></span>
+        <span  ng-if="formdata['Provider Last Name (Legal Name)']"> <strong>Last Name :</strong>  {{formdata['Provider Last Name (Legal Name)']}} <br/></span>
+        <span  ng-if="formdata['Provider Gender Code']"> <strong>Gender :</strong>  {{formdata['Provider Gender Code']}} <br/></span>
+        <span  ng-if="formdata['Provider First Line Business Mailing Address']"> <strong>Address :</strong>  {{formdata['Provider First Line Business Mailing Address']}} <br/></span>
+        <span  ng-if="formdata['Provider Business Mailing Address State Name']"> <strong>State :</strong>  {{formdata['Provider Business Mailing Address State Name']}} <br/></span>
+        <span  ng-if="formdata['Provider Business Practice Location Address Postal Code']"> <strong>Postal Code :</strong>  {{formdata['Provider Business Practice Location Address Postal Code']}} <br/></span>
+        <span  ng-if="formdata['Provider Business Practice Location Address Telephone Number']"> <strong>Phone :</strong>  {{formdata['Provider Business Practice Location Address Telephone Number']}} <br/></span>
+        <span  ng-if="formdata['Provider Business Mailing Address Fax Number']"> <strong>Fax :</strong>  {{formdata['Provider Business Mailing Address Fax Number']}} <br/></span>
+    </div>  
+    <div class="row" ng-show="formdata">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="control-group">
+                <label class="control-label label_style1" for="inputEmail">&nbsp;</label>
+                <div class="controls">
+                    <a class="submit btn btn-primary pull-right" href="" ng-click="createProfessional($event)">Add Professional Data</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
